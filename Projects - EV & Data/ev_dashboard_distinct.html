@@ -1,0 +1,272 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.dash{font-family:'Inter',sans-serif;background:#f8f5f0;color:#1a1208;padding:0;min-height:100vh;}
+.hero{background:#1a1208;padding:2rem 1.5rem 1.5rem;position:relative;overflow:hidden;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#e8a045;margin-bottom:8px;}
+.hero-title{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;color:#fff;letter-spacing:0.5px;margin-bottom:6px;line-height:1.2;}
+.hero-title span{color:#e8a045;}
+.hero-sub{font-size:12px;color:#8a7060;font-family:'DM Mono',monospace;}
+.hero-badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.badge{font-size:10px;font-family:'DM Mono',monospace;padding:4px 12px;border-radius:20px;letter-spacing:1px;border:1px solid;}
+.body{padding:1.5rem;}
+.section-label{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7a5828;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,#d4b896,transparent);}
+
+/* Metric cards — each a distinct color */
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:1.5rem;}
+.mcard{border-radius:12px;padding:14px;position:relative;overflow:hidden;}
+.mc1{background:#1e3a5f;color:#fff;}
+.mc2{background:#1a5c38;color:#fff;}
+.mc3{background:#7a2020;color:#fff;}
+.mc4{background:#5c3a00;color:#fff;}
+.mcard-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;opacity:0.7;}
+.mcard-value{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.5px;}
+.mcard-desc{font-size:10px;margin-top:3px;line-height:1.4;opacity:0.65;}
+
+.charts-row{display:grid;grid-template-columns:3fr 2fr;gap:12px;margin-bottom:1.5rem;}
+.card{background:#fff;border:1px solid #e8ddd0;border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.card-title{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:#1a1208;margin-bottom:3px;}
+.card-desc{font-size:11px;color:#8a7060;margin-bottom:14px;line-height:1.5;}
+.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;}
+
+.reg-box{background:#1e3a5f;border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+.reg-eq{font-family:'DM Mono',monospace;font-size:13px;color:#7dc4ff;font-weight:500;}
+.reg-parts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.reg-part-a{background:#f0f4ff;border:1px solid #b8cff0;border-radius:8px;padding:10px;}
+.reg-part-b{background:#fff5e8;border:1px solid #f0c878;border-radius:8px;padding:10px;}
+.reg-part-label{font-size:10px;font-family:'DM Mono',monospace;margin-bottom:3px;text-transform:uppercase;letter-spacing:1px;}
+.reg-part-val{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;}
+.reg-part-note{font-size:10px;margin-top:2px;line-height:1.4;}
+
+.pval-num{font-family:'Rajdhani',sans-serif;font-size:52px;font-weight:700;color:#b03020;line-height:1;letter-spacing:-2px;}
+.verdict-pill{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:5px 14px;border-radius:20px;margin-top:10px;background:#fde8dc;border:1px solid #e8a090;color:#8a1a08;letter-spacing:1px;}
+.alpha-track{height:8px;background:#f0e8e0;border-radius:4px;position:relative;margin:12px 0;border:1px solid #e8d8c8;}
+.alpha-fill{height:100%;border-radius:4px;background:#b03020;}
+.alpha-marker{position:absolute;top:-5px;height:18px;width:2px;background:#1e3a5f;left:calc(5% - 1px);}
+.alpha-labels{display:flex;justify-content:space-between;font-size:10px;font-family:'DM Mono',monospace;color:#8a7060;}
+
+/* Correlation — each bar a distinct color */
+.corr-item{margin-bottom:13px;}
+.corr-item:last-child{margin-bottom:0;}
+.corr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.corr-name{font-size:12px;font-weight:600;color:#1a1208;}
+.corr-r{font-size:11px;font-family:'DM Mono',monospace;font-weight:500;}
+.corr-track{height:8px;background:#f0e8e0;border-radius:4px;overflow:hidden;border:1px solid #e8d8c8;}
+.corr-fill{height:100%;border-radius:4px;}
+.corr-meaning{font-size:10px;color:#8a7060;margin-top:3px;}
+
+.insight-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.insight{border-radius:12px;padding:16px;}
+.in1{background:#1e3a5f;color:#fff;}
+.in2{background:#1a5c38;color:#fff;}
+.in3{background:#5c3a00;color:#fff;}
+.insight-num{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;line-height:1;margin-bottom:6px;opacity:1;}
+.insight-head{font-size:12px;font-weight:600;margin-bottom:4px;}
+.insight-body{font-size:11px;line-height:1.6;opacity:0.75;}
+.note-box{background:#fffbf0;border:1px solid #e8d8a0;border-left:3px solid #e8a020;border-radius:0 8px 8px 0;padding:10px 12px;margin-top:10px;font-size:11px;color:#6a4a10;line-height:1.6;}
+.note-box strong{color:#1a1208;}
+.r2-badge{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:4px;background:#e8f4ff;border:1px solid #a8d0f0;color:#1e3a5f;margin-left:6px;vertical-align:middle;}
+</style>
+
+<div class="dash">
+  <div class="hero">
+    <div class="hero-eyebrow">BUS210 · Global EV Market Analysis</div>
+    <div class="hero-title">Why Are EVs So <span>Expensive</span> in the US?</div>
+    <div class="hero-sub">361 models · 5 nationalities · EUR to USD @ 1.15 · Team: Sofia, Cameron, Paulson, Naomi</div>
+    <div class="hero-badges">
+      <span class="badge" style="background:rgba(30,58,95,0.6);border-color:#4a7ab0;color:#a8d0ff;">361 EV Models</span>
+      <span class="badge" style="background:rgba(26,92,56,0.6);border-color:#3a9060;color:#90e0a8;">9 Variables</span>
+      <span class="badge" style="background:rgba(92,58,0,0.6);border-color:#c08820;color:#f8d080;">T-Test Analysis</span>
+      <span class="badge" style="background:rgba(122,32,32,0.6);border-color:#c05050;color:#ffb0a0;">Linear Regression</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="section-label">Market Overview</div>
+    <div class="metrics">
+      <div class="mcard mc1">
+        <div class="mcard-label">global average</div>
+        <div class="mcard-value">$76,823</div>
+        <div class="mcard-desc">Mean price across all 361 models</div>
+      </div>
+      <div class="mcard mc2">
+        <div class="mcard-label">typical price</div>
+        <div class="mcard-value">$72,531</div>
+        <div class="mcard-desc">Median — half of all cars cost less</div>
+      </div>
+      <div class="mcard mc3">
+        <div class="mcard-label">mean vs median</div>
+        <div class="mcard-value">+$4,292</div>
+        <div class="mcard-desc">Luxury cars pull the average up</div>
+      </div>
+      <div class="mcard mc4">
+        <div class="mcard-label">std deviation</div>
+        <div class="mcard-value">$24,245</div>
+        <div class="mcard-desc">Wide range: budget to ultra-luxury</div>
+      </div>
+    </div>
+
+    <div class="section-label">Price by Nationality</div>
+    <div class="charts-row">
+      <div class="card">
+        <div class="card-title">Average price by nationality</div>
+        <div class="card-desc">European brands lead in price. Chinese brands offer the best value for money.</div>
+        <div style="position:relative;height:200px;">
+          <canvas id="priceChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Mean vs Median gap</div>
+        <div class="card-desc">When mean is greater than median, luxury cars skew the average up — right-skewed distribution.</div>
+        <div style="position:relative;height:200px;">
+          <canvas id="distChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Statistical Analysis</div>
+    <div class="bottom-row">
+      <div class="card">
+        <div class="card-title">What drives price up? Battery size.</div>
+        <div class="card-desc">Linear regression on 309 models. Battery explains ~50% of price variation. <span class="r2-badge">R2 = 0.496</span></div>
+        <div class="reg-box">
+          <div style="font-size:10px;color:#90c8ff;font-family:'DM Mono',monospace;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">regression equation</div>
+          <div class="reg-eq">Price = -$18,865 + ($1,354 x kWh)</div>
+        </div>
+        <div class="reg-parts">
+          <div class="reg-part-a">
+            <div class="reg-part-label" style="color:#1e3a5f;">intercept</div>
+            <div class="reg-part-val" style="color:#1e3a5f;">-$18,865</div>
+            <div class="reg-part-note" style="color:#3a5a80;">Statistical baseline — not a real cost, where the line crosses zero</div>
+          </div>
+          <div class="reg-part-b">
+            <div class="reg-part-label" style="color:#8a5a00;">per kWh added</div>
+            <div class="reg-part-val" style="color:#b07800;">+$1,354</div>
+            <div class="reg-part-note" style="color:#7a4a00;">Every extra kWh raises price by $1,354</div>
+          </div>
+        </div>
+        <div class="note-box">An 80 kWh US EV battery alone adds <strong>$108,320</strong> to retail price. A city-sized 40 kWh battery would save over <strong>$54,160</strong>.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Is the US-China price gap real?</div>
+        <div class="card-desc">Two-sample T-test — H0: no price difference · H1: US more expensive · alpha = 0.05</div>
+        <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:8px;">
+          <div>
+            <div style="font-size:10px;color:#8a7060;font-family:'DM Mono',monospace;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">p-value result</div>
+            <div class="pval-num">0.238</div>
+          </div>
+          <div style="flex:1;padding-bottom:8px;">
+            <div style="font-size:11px;color:#6a5040;line-height:1.6;">0.238 is greater than 0.05 — the price difference is <strong style="color:#1a1208;">not statistically significant</strong></div>
+          </div>
+        </div>
+        <div class="alpha-track">
+          <div class="alpha-fill" style="width:23.8%;"></div>
+          <div class="alpha-marker"></div>
+        </div>
+        <div class="alpha-labels">
+          <span>0.00</span>
+          <span style="color:#1e3a5f;font-weight:500;">alpha = 0.05</span>
+          <span style="color:#b03020;">p = 0.238</span>
+          <span>1.00</span>
+        </div>
+        <div class="verdict-pill">FAIL TO REJECT NULL HYPOTHESIS</div>
+        <div class="note-box">The data does not provide enough evidence to prove US EVs are significantly more expensive than Chinese EVs.</div>
+      </div>
+    </div>
+
+    <div class="section-label">Correlation with Price</div>
+    <div class="card" style="margin-bottom:1.5rem;">
+      <div class="card-title">What actually affects EV price?</div>
+      <div class="card-desc">Speed and battery dominate. Eco-friendliness has almost zero impact — buyers pay for performance, not sustainability.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;">
+        <div class="corr-item">
+          <div class="corr-top"><span class="corr-name">Top Speed</span><span class="corr-r" style="color:#1e3a5f;">r = 0.82</span></div>
+          <div class="corr-track"><div class="corr-fill" style="width:82%;background:#1e3a5f;"></div></div>
+          <div class="corr-meaning">Very strong — fast cars carry a major price premium</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-top"><span class="corr-name">Battery Capacity (kWh)</span><span class="corr-r" style="color:#1a5c38;">r = 0.68</span></div>
+          <div class="corr-track"><div class="corr-fill" style="width:68%;background:#1a5c38;"></div></div>
+          <div class="corr-meaning">Strong — bigger battery means significantly higher price</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-top"><span class="corr-name">Acceleration (0-100 km/h)</span><span class="corr-r" style="color:#7a5800;">r = 0.45</span></div>
+          <div class="corr-track"><div class="corr-fill" style="width:45%;background:#c89020;"></div></div>
+          <div class="corr-meaning">Moderate — sporty cars tend to cost more</div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-top"><span class="corr-name">Efficiency (eco-friendliness)</span><span class="corr-r" style="color:#b03020;">r = 0.15</span></div>
+          <div class="corr-track"><div class="corr-fill" style="width:15%;background:#b03020;"></div></div>
+          <div class="corr-meaning">Almost none — being green does not raise the price</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Key Takeaways</div>
+    <div class="insight-row">
+      <div class="insight in1">
+        <div class="insight-num">$1,354</div>
+        <div class="insight-head">Battery is the biggest cost</div>
+        <div class="insight-body">Every extra kWh adds $1,354 — an 80 kWh battery contributes over $108,000 to the price</div>
+      </div>
+      <div class="insight in2">
+        <div class="insight-num">r = 0.82</div>
+        <div class="insight-head">Speed = status = price</div>
+        <div class="insight-body">Buyers pay for performance and luxury branding. Eco-friendliness barely moves the needle (r = 0.15)</div>
+      </div>
+      <div class="insight in3">
+        <div class="insight-num">40 kWh</div>
+        <div class="insight-head">The city car solution</div>
+        <div class="insight-body">Smaller city-pack batteries could cut prices by $54,000+ — great for the 90% who just commute daily</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+Chart.defaults.color='#8a7060';
+Chart.defaults.borderColor='#e8d8c8';
+
+new Chart(document.getElementById('priceChart'),{
+  type:'bar',
+  data:{
+    labels:['American','Chinese','Asian','European','S. Korean','Vietnamese'],
+    datasets:[{
+      data:[76885,74445,73324,79609,73746,73073],
+      backgroundColor:['#1e3a5f','#1a5c38','#c89020','#7a2020','#5c3a6e','#0a6060'],
+      borderRadius:6,borderSkipped:false,borderWidth:0
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1208',borderColor:'#e8d8c8',borderWidth:1,titleColor:'#fff',bodyColor:'#c8b8a0',callbacks:{label:c=>' $'+c.raw.toLocaleString()}}},
+    scales:{
+      y:{beginAtZero:false,min:60000,ticks:{callback:v=>'$'+Math.round(v/1000)+'k',font:{size:10}},grid:{color:'#f0e8e0'}},
+      x:{ticks:{font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+new Chart(document.getElementById('distChart'),{
+  type:'bar',
+  data:{
+    labels:['China','American','Asian','European'],
+    datasets:[
+      {label:'Mean',data:[74445,76885,73324,79609],backgroundColor:['#1a5c38','#1e3a5f','#c89020','#7a2020'],borderRadius:4,borderSkipped:false,borderWidth:0},
+      {label:'Median',data:[67768,72859,69652,74974],backgroundColor:['rgba(26,92,56,0.35)','rgba(30,58,95,0.35)','rgba(200,144,32,0.35)','rgba(122,32,32,0.35)'],borderRadius:4,borderSkipped:false,borderWidth:0}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1208',borderColor:'#e8d8c8',borderWidth:1,titleColor:'#fff',bodyColor:'#c8b8a0',callbacks:{label:c=>` ${c.dataset.label}: $`+c.raw.toLocaleString()}}},
+    scales:{
+      y:{beginAtZero:false,min:55000,ticks:{callback:v=>'$'+Math.round(v/1000)+'k',font:{size:10}},grid:{color:'#f0e8e0'}},
+      x:{ticks:{font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+</script>

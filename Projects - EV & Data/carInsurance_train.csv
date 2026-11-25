@@ -1,0 +1,24 @@
+﻿Row Labels,Sum of CarInsurance,,,,,,,,,,,
+entrepreneur,35,,,,,,,,,,,
+unemployed,74,,,,,,,,,,,
+Grand Total,109,,,,,,,,,,Row Labels,Sum of CarLoan
+,,,,,,,,,,,entrepreneur,28
+,,,,,,,,,,,unemployed,5
+,,,,,,,,,,,Grand Total,33
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Row Labels,Average of Balance,,,,,,,,,,,
+entrepreneur,1689.15,,,,,,,,,,,
+unemployed,1423.02,,,,,,,,,,,
+Grand Total,1551.31,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Row Labels,Count of Outcome,,,,,,,,,,,
+entrepreneur,121,,,,,,,,,,,
+unemployed,130,,,,,,,,,,,
+Grand Total,251,,,,,,,,,,,

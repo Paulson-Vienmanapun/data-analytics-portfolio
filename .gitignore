@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Excluded datasets
+Data set/
+
+# Python & Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
